@@ -1,0 +1,1 @@
+Script básico de Hello World em Flask.
