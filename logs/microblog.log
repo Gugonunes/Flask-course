@@ -57,3 +57,4 @@ Traceback (most recent call last):
   File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_node/_http_urllib3.py", line 199, in perform_request
     raise err from None
 elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: ProtocolError(('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))))
+2022-09-03 11:34:52,191 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
