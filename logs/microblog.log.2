@@ -1,63 +1,4 @@
-2022-08-31 10:56:18,126 ERROR: Exception on /search [GET] [in /home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py:1741]
-Traceback (most recent call last):
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/home/gustavo/Flask-course/app/main/routes.py", line 154, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-  File "/home/gustavo/Flask-course/app/models.py", line 15, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "/home/gustavo/Flask-course/app/search.py", line 19, in query_index
-    search = current_app.elasticsearch.search(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/utils.py", line 414, in wrapped
-    return api(*args, **kwargs)
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/__init__.py", line 3774, in search
-    return self.perform_request(  # type: ignore[return-value]
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
-    meta, resp_body = self.transport.perform_request(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_transport.py", line 329, in perform_request
-    meta, raw_data = node.perform_request(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_node/_http_urllib3.py", line 199, in perform_request
-    raise err from None
-elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7ff9c2ee3a00>: Failed to establish a new connection: [Errno 111] Connection refused))
-2022-08-31 10:57:51,288 ERROR: Exception on /search [GET] [in /home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py:1741]
-Traceback (most recent call last):
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/home/gustavo/Flask-course/app/main/routes.py", line 154, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-  File "/home/gustavo/Flask-course/app/models.py", line 15, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "/home/gustavo/Flask-course/app/search.py", line 19, in query_index
-    search = current_app.elasticsearch.search(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/utils.py", line 414, in wrapped
-    return api(*args, **kwargs)
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/__init__.py", line 3774, in search
-    return self.perform_request(  # type: ignore[return-value]
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
-    meta, resp_body = self.transport.perform_request(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_transport.py", line 329, in perform_request
-    meta, raw_data = node.perform_request(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_node/_http_urllib3.py", line 199, in perform_request
-    raise err from None
-elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7ff9c310cca0>: Failed to establish a new connection: [Errno 111] Connection refused))
-2022-08-31 10:58:26,669 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:77]
-2022-08-31 10:58:29,643 ERROR: Exception on /search [GET] [in /home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py:1741]
+2022-08-31 11:10:18,216 ERROR: Exception on /search [GET] [in /home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py:1741]
 Traceback (most recent call last):
   File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
@@ -85,4 +26,67 @@ Traceback (most recent call last):
     meta, raw_data = node.perform_request(
   File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_node/_http_urllib3.py", line 199, in perform_request
     raise err from None
-elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f7eacd96d30>: Failed to establish a new connection: [Errno 111] Connection refused))
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f21955fa130>: Failed to establish a new connection: [Errno 111] Connection refused))
+2022-08-31 12:48:52,859 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:77]
+2022-08-31 12:53:28,616 ERROR: Exception on /search [GET] [in /home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/home/gustavo/Flask-course/app/main/routes.py", line 153, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+  File "/home/gustavo/Flask-course/app/models.py", line 15, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "/home/gustavo/Flask-course/app/search.py", line 22, in query_index
+    search = current_app.elasticsearch.search(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/utils.py", line 414, in wrapped
+    return api(*args, **kwargs)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/__init__.py", line 3774, in search
+    return self.perform_request(  # type: ignore[return-value]
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
+    meta, resp_body = self.transport.perform_request(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_transport.py", line 329, in perform_request
+    meta, raw_data = node.perform_request(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_node/_http_urllib3.py", line 199, in perform_request
+    raise err from None
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: ProtocolError(('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))))
+2022-09-03 11:34:52,191 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-05 08:35:38,112 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-05 08:35:49,902 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-05 09:23:13,231 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-05 09:23:19,429 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-05 09:39:51,317 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-05 09:39:54,893 ERROR: Exception on /auth/login [GET] [in /home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/gustavo/Flask-course/app/auth/routes.py", line 28, in login
+    return render_template('auth/login.html', title=_('Sign In'), form=form)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/gustavo/Flask-course/app/templates/auth/login.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/gustavo/Flask-course/app/templates/base.html", line 35, in template
+    {% else %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'. Jinja was looking for the following tags: 'endif'. The innermost block that needs to be closed is 'if'.

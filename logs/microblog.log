@@ -1,4 +1,13 @@
-2022-08-31 11:10:18,216 ERROR: Exception on /search [GET] [in /home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py:1741]
+2022-09-05 09:41:28,329 ERROR: Exception on /auth/login [POST] [in /home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.last_message_read_time
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,27 +17,47 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/home/gustavo/Flask-course/app/main/routes.py", line 153, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-  File "/home/gustavo/Flask-course/app/models.py", line 15, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "/home/gustavo/Flask-course/app/search.py", line 22, in query_index
-    search = current_app.elasticsearch.search(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/utils.py", line 414, in wrapped
-    return api(*args, **kwargs)
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/__init__.py", line 3774, in search
-    return self.perform_request(  # type: ignore[return-value]
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
-    meta, resp_body = self.transport.perform_request(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_transport.py", line 329, in perform_request
-    meta, raw_data = node.perform_request(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_node/_http_urllib3.py", line 199, in perform_request
-    raise err from None
-elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f21955fa130>: Failed to establish a new connection: [Errno 111] Connection refused))
-2022-08-31 12:48:52,859 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:77]
-2022-08-31 12:53:28,616 ERROR: Exception on /search [GET] [in /home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py:1741]
+  File "/home/gustavo/Flask-course/app/auth/routes.py", line 19, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2823, in first
+    return self.limit(1)._iter().first()
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2907, in _iter
+    result = self.session.execute(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.last_message_read_time
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen, user.last_message_read_time AS user_last_message_read_time 
+FROM user 
+WHERE user.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('gugonunes', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-09-05 09:41:35,139 ERROR: Exception on /auth/login [POST] [in /home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.last_message_read_time
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
@@ -38,23 +67,39 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/home/gustavo/Flask-course/app/main/routes.py", line 153, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-  File "/home/gustavo/Flask-course/app/models.py", line 15, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "/home/gustavo/Flask-course/app/search.py", line 22, in query_index
-    search = current_app.elasticsearch.search(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/utils.py", line 414, in wrapped
-    return api(*args, **kwargs)
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/__init__.py", line 3774, in search
-    return self.perform_request(  # type: ignore[return-value]
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
-    meta, resp_body = self.transport.perform_request(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_transport.py", line 329, in perform_request
-    meta, raw_data = node.perform_request(
-  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/elastic_transport/_node/_http_urllib3.py", line 199, in perform_request
-    raise err from None
-elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: ProtocolError(('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))))
-2022-09-03 11:34:52,191 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+  File "/home/gustavo/Flask-course/app/auth/routes.py", line 19, in login
+    user = User.query.filter_by(username=form.username.data).first()
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2823, in first
+    return self.limit(1)._iter().first()
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/orm/query.py", line 2907, in _iter
+    result = self.session.execute(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/home/gustavo/.cache/pypoetry/virtualenvs/gustavo-W69JykhD-py3.9/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.last_message_read_time
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen, user.last_message_read_time AS user_last_message_read_time 
+FROM user 
+WHERE user.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('gugonunes', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-09-05 09:42:15,495 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-05 09:42:27,809 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-05 09:42:38,424 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-05 09:42:42,623 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-05 09:42:50,618 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
