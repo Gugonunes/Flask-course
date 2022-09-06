@@ -103,3 +103,8 @@ WHERE user.username = ?
 2022-09-05 09:42:38,424 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
 2022-09-05 09:42:42,623 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
 2022-09-05 09:42:50,618 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-06 09:13:43,450 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-06 09:13:52,743 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-06 09:13:55,306 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-06 09:14:02,122 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:82]
+2022-09-06 10:42:32,899 INFO: Microblog startup [in /home/gustavo/Flask-course/app/__init__.py:86]
