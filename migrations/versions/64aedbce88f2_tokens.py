@@ -1,8 +1,8 @@
-"""tasks
+"""tokens
 
-Revision ID: 43a2333ffcc1
+Revision ID: 64aedbce88f2
 Revises: 
-Create Date: 2022-09-06 09:13:55.361099
+Create Date: 2022-09-07 10:32:46.856484
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '43a2333ffcc1'
+revision = '64aedbce88f2'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -25,10 +25,13 @@ def upgrade():
     sa.Column('password_hash', sa.String(length=128), nullable=True),
     sa.Column('about_me', sa.String(length=140), nullable=True),
     sa.Column('last_seen', sa.DateTime(), nullable=True),
+    sa.Column('token', sa.String(length=32), nullable=True),
+    sa.Column('token_expiration', sa.DateTime(), nullable=True),
     sa.Column('last_message_read_time', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_user_email'), 'user', ['email'], unique=True)
+    op.create_index(op.f('ix_user_token'), 'user', ['token'], unique=True)
     op.create_index(op.f('ix_user_username'), 'user', ['username'], unique=True)
     op.create_table('followers',
     sa.Column('follower_id', sa.Integer(), nullable=True),
@@ -94,6 +97,7 @@ def downgrade():
     op.drop_table('message')
     op.drop_table('followers')
     op.drop_index(op.f('ix_user_username'), table_name='user')
+    op.drop_index(op.f('ix_user_token'), table_name='user')
     op.drop_index(op.f('ix_user_email'), table_name='user')
     op.drop_table('user')
     # ### end Alembic commands ###
